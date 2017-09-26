@@ -48,7 +48,7 @@ def sun(seth):
 def checksun():
 	now = datetime.now()
 	logger.info("Checking for sun")
-	with urllib.request.urlopen('http://www.yr.no/stad/Norway/Akershus/B%C3%A6rum/Rykkinn/varsel.xml') as response:
+	with urllib.request.urlopen('http://www.yr.no/stad/Norway/Akershus/B%C3%A6rum/Rykkinn/varsel.xml') as response: #Such PII leak
 		xml = untangle.parse(response.read().decode("utf-8"))
 		logger.debug("Downloaded yr, {} bytes".format(len(xml)))
 		rice = xml.weatherdata.sun['rise'][11:19] # 2017-01-01T00:00:00
